@@ -25,8 +25,16 @@ if (empty($_POST['mobile'])) {
     print_r(json_encode($response));
     return false;
 }
+if (empty($_POST['location'])) {
+    $response['success'] = false;
+    $response['message'] = "Location is Empty";
+    print_r(json_encode($response));
+    return false;
+}
 $name = $db->escapeString($_POST['name']);
 $mobile = $db->escapeString($_POST['mobile']);
+$location = $db->escapeString($_POST['location']);
+
 
 $sql = "SELECT * FROM users WHERE mobile = '$mobile'";
 $db->sql($sql);
@@ -40,7 +48,7 @@ if ($num == 1) {
 }
 else{
     
-    $sql = "INSERT INTO users (`name`,`mobile`,`status`)VALUES('$name','$mobile',1)";
+    $sql = "INSERT INTO users (`name`,`mobile`,`location`)VALUES('$name','$mobile','$location')";
     $db->sql($sql);
     $sql = "SELECT * FROM users WHERE mobile = '$mobile'";
     $db->sql($sql);
