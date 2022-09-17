@@ -27,13 +27,14 @@ $num = $db->numRows($res);
 if ($num == 1){
     $response['success'] = true;
     $response['message'] = "Logged In Successfully";
+    $response['new user'] = false;
     $response['data'] = $res;
     print_r(json_encode($response));
 }
 else{
-    $response['success'] = false;
-    $response['message'] = "User Not Found";
-    $response['data'] = $res;
+    $response['success'] = true;
+    $response['message'] = "Logged In Successfully";
+    $response['new user'] = true;
     print_r(json_encode($response));
 
 }
