@@ -1,9 +1,8 @@
 <?php
 
 
-include('./includes/variables.php');
-include_once('includes/custom-functions.php');
-$fn = new custom_functions;
+
+
 
 if (isset($_POST['btnLogin'])) {
 
