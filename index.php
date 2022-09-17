@@ -54,6 +54,5 @@ session_start();
   </head>
 </body>
       <!-- Content Wrapper. Contains page content -->
-       <?php include 'public/login-form.php'; ?>
   </body>
 </html>
