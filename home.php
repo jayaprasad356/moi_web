@@ -1,8 +1,6 @@
 <?php session_start();
 
-include_once('includes/custom-functions.php');
-include_once('includes/functions.php');
-$function = new custom_functions;
+
 
 // set time for session timeout
 $currentTime = time() + 25200;
@@ -19,7 +17,6 @@ if ($currentTime > $_SESSION['timeout']) {
 // destroy previous session timeout and create new one
 unset($_SESSION['timeout']);
 $_SESSION['timeout'] = $currentTime + $expired;
-$function = new custom_functions;
 include "header.php";
 ?>
 <html>

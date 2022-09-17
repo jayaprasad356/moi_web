@@ -3,8 +3,6 @@ session_start();
     ob_start(); 
     include_once('includes/crud.php');
     $db = new Database;
-    include_once('includes/custom-functions.php');
-    $fn = new custom_functions();
     $db->connect();
     date_default_timezone_set('Asia/Kolkata');
     
