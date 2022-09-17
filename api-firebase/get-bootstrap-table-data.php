@@ -145,7 +145,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'functions') {
     foreach ($res as $row) {
 
         
-        $operate = '<a href="view-moi.php?id=' . $row['id'] . '" class="label label-primary" title="View">View</a>';
+        $operate = '<a href="mois.php?id=' . $row['id'] . '" class="label label-primary" title="View">View</a>';
         $tempRow['id'] = $row['id'];
         $tempRow['function_name'] = $row['function_name'];
         $tempRow['date'] = $row['date'];
