@@ -13,55 +13,55 @@ include_once('../includes/crud.php');
 $db = new Database();
 $db->connect();
 
-if (empty($_POST['organizer_id'])) {
+if (empty($_POST['user_id'])) {
     $response['success'] = false;
-    $response['message'] = "Organizer Id is Empty";
+    $response['message'] = "User Id is Empty";
     print_r(json_encode($response));
     return false;
 }
-if (empty($_POST['mobile'])) {
+if (empty($_POST['function_name'])) {
     $response['success'] = false;
-    $response['message'] = "Mobilenumber is Empty";
+    $response['message'] = "Function Name is Empty";
     print_r(json_encode($response));
     return false;
 }
-if (empty($_POST['function_id'])) {
+if (empty($_POST['place'])) {
     $response['success'] = false;
-    $response['message'] = "Function Id is Empty";
+    $response['message'] = "Place is Empty";
     print_r(json_encode($response));
     return false;
 }
-if (empty($_POST['amount'])) {
+if (empty($_POST['date'])) {
     $response['success'] = false;
-    $response['message'] = "Amount is Empty";
+    $response['message'] = "Date is Empty";
     print_r(json_encode($response));
     return false;
 }
-$organizer_id = $db->escapeString($_POST['organizer_id']);
-$mobile = $db->escapeString($_POST['mobile']);
-$function_id = $db->escapeString($_POST['function_id']);
-$amount = $db->escapeString($_POST['amount']);
-
-$sql = "SELECT * FROM users WHERE mobile = '$mobile'";
+$user_id = $db->escapeString($_POST['user_id']);
+$function_name = $db->escapeString($_POST['function_name']);
+$place = $db->escapeString($_POST['place']);
+$date = $db->escapeString($_POST['date']);
+$sql = "SELECT * FROM users WHERE id = '$user_id'";
 $db->sql($sql);
 $res = $db->getResult();
 $num = $db->numRows($res);
 if ($num == 1) {
-    $user_id = $res[0]['id'];
-    $sql = "INSERT INTO moi (`user_id`,`organizer_id`,`function_id`,`amount`)VALUES('$user_id','$organizer_id','$function_id','$amount')";
+    $sql = "INSERT INTO functions (`user_id`,`function_name`,`place`,`date`)VALUES('$user_id','$function_name','$place','$date')";
     $db->sql($sql);
     $response['success'] = true;
-    $response['message'] ="MOi Added Successfully";
+    $response['message'] ="Function Added Successfully";
     print_r(json_encode($response));
     return false;
 }
 else{
     
     $response['success'] = false;
-    $response['message'] ="Mobile Number Not Registered";
+    $response['message'] ="User Id not found";
     print_r(json_encode($response));
     return false;
 
 }
+
+
 
 ?>
