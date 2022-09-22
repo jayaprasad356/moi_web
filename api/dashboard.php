@@ -26,7 +26,6 @@ $sql = "SELECT * FROM users WHERE id = '$user_id'";
 $db->sql($sql);
 $res = $db->getResult();
 $num = $db->numRows($res);
-$todaydate = date('Y-m-d');
 if ($num == 1) {
     $sql = "SELECT SUM(amount) AS debitmoi FROM moi WHERE user_id = '$user_id'";
     $db->sql($sql);
@@ -37,7 +36,7 @@ if ($num == 1) {
     $res = $db->getResult();
     $creditmoi = $res[0]['creditmoi'];
 
-    $sql = "SELECT * FROM functions WHERE `date` >= '$todaydate' AND user_id='$user_id'";
+    $sql = "SELECT * FROM functions WHERE user_id='$user_id' LIMIT 10";
     $db->sql($sql);
     $res = $db->getResult();
     $rows = array();
@@ -55,7 +54,7 @@ if ($num == 1) {
     $response['message'] ="Dashboard Retrived Successfully";
     $response['debitmoi'] = $debitmoi;
     $response['creditmoi'] = $creditmoi;
-    $response['upcoming_functions'] = $rows;
+    $response['recent_functions'] = $rows;
     print_r(json_encode($response));
     return false;
 }
