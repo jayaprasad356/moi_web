@@ -48,8 +48,19 @@ $res = $db->getResult();
 $num = $db->numRows($res);
 if ($num == 1) {
     $user_id = $res[0]['id'];
-    $sql = "INSERT INTO moi (`user_id`,`organizer_id`,`function_id`,`amount`)VALUES('$user_id','$organizer_id','$function_id','$amount')";
+    $sql = "SELECT * FROM moi WHERE user_id ='$user_id' AND  organizer_id ='$organizer_id' AND  function_id ='$function_id'";
     $db->sql($sql);
+    $res = $db->getResult();
+    $num = $db->numRows($res);
+    if ($num == 1) {
+        $moi_id = $res[0]['id'];
+        $sql = "UPDATE moi SET `amount`= `amount` + '$amount' WHERE `id`= '$moi_id'";
+        $db->sql($sql);
+    }else{
+        $sql = "INSERT INTO moi (`user_id`,`organizer_id`,`function_id`,`amount`)VALUES($user_id,$organizer_id,$function_id,$amount)";
+        $db->sql($sql);
+    }
+
     $response['success'] = true;
     $response['message'] ="MOi Added Successfully";
     print_r(json_encode($response));
