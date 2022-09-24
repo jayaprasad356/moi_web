@@ -21,10 +21,9 @@
                             <thead>
                                 <tr>
                                     <th data-field="id" data-sortable="true">ID</th>
-                                    <th data-field="user_id" data-sortable="true">User Id</th>
-                                    <th data-field="organizer_id" data-sortable="true">Organizer Id</th>
-                                    <th data-field="function_id" data-sortable="true">Function Id</th>
-                                    <th data-field="amount" data-sortable="true"> Amount</th>
+                                    <th data-field="name" data-sortable="true">பெயரஂ</th>
+                                    <th data-field="location" data-sortable="true">ஊரஂ</th>
+                                    <th data-field="amount" data-sortable="true">தொகை</th>
                                 </tr>
                             </thead>
                         </table>

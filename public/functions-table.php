@@ -24,7 +24,7 @@
                                     <th data-field="function_name" data-sortable="true">விசேஷதஂதினஂ பெயர் </th>
                                     <th data-field="date" data-sortable="true">தேதி</th>
                                     <th data-field="place" data-sortable="true">இடமஂ</th>
-                                    <th data-field="operate">Action</th>
+                                    <th data-field="operate">செயலஂ</th>
                                 </tr>
                             </thead>
                         </table>

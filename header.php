@@ -163,12 +163,12 @@ $db->sql("SET NAMES 'utf8'");
                         <span>விழாகஂகளஂ</span>
                     </a>
                 </li>
-                <li class="treeview">
+                <!-- <li class="treeview">
                     <a href="mois.php">
                         <i class="fa fa-bullseye"></i>
                         <span>மொயஂ</span>
                     </a>
-                </li>
+                </li> -->
                 <!-- <li class="treeview">
                     <a href="slides.php">
                         <i class="fa fa-sliders"></i>

@@ -145,7 +145,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'functions') {
     foreach ($res as $row) {
 
         
-        $operate = '<a href="mois.php?id=' . $row['id'] . '" class="label label-primary" title="View">View</a>';
+        $operate = '<a href="mois.php?id=' . $row['id'] . '" class="label label-primary" title="View">காடஂடு</a>';
         $tempRow['id'] = $row['id'];
         $tempRow['function_name'] = $row['function_name'];
         $tempRow['date'] = $row['date'];
@@ -174,7 +174,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'moi') {
 
     if (isset($_GET['search']) && !empty($_GET['search'])) {
         $search = $db->escapeString($_GET['search']);
-        $where .= "WHERE user_id like '%" . $search . "%' OR function_id like '%" . $search . "%'OR organizer_id like '%" . $search . "%'";
+        $where .= "WHERE name like '%" . $search . "%' OR amount like '%" . $search . "%'OR place like '%" . $search . "%'";
     }
     if (isset($_GET['sort'])){
         $sort = $db->escapeString($_GET['sort']);
@@ -188,7 +188,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'moi') {
     foreach ($res as $row)
         $total = $row['total'];
    
-    $sql = "SELECT * FROM moi " . $where . " ORDER BY " . $sort . " " . $order . " LIMIT " . $offset . ", " . $limit;
+    $sql = "SELECT * FROM moi,users WHERE moi.user_id=users.id ";
     $db->sql($sql);
     $res = $db->getResult();
 
@@ -202,9 +202,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'moi') {
 
         
         $tempRow['id'] = $row['id'];
-        $tempRow['user_id'] = $row['user_id'];
-        $tempRow['organizer_id'] = $row['organizer_id'];
-        $tempRow['function_id'] = $row['function_id'];
+        $tempRow['name'] = $row['name'];
+        $tempRow['location'] = $row['location'];
         $tempRow['amount'] = $row['amount'];
         $rows[] = $tempRow;
     }
