@@ -72,22 +72,7 @@ include "header.php";
                         <a href="functions.php" class="small-box-footer">மேலும் அறிக <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-xs-6">
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                        <h3><?php
-                            $sql = "SELECT SUM(amount) AS total FROM moi";
-                            $db->sql($sql);
-                            $res = $db->getResult();
-                            $num = $res[0]['total'];
-                            echo 'Rs. '.$num;
-                             ?></h3>
-                            <p>மொய்</p>
-                        </div>
-                        <div class="icon"><i class="fa fa-money"></i></div>
-                        <a href="mois.php" class="small-box-footer">மேலும் அறிக <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
+
             </div>
         </section>
     </div>

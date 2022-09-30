@@ -163,6 +163,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'moi') {
     $where = '';
     $sort = 'id';
     $order = 'DESC';
+    if (isset($_GET['function_id']))
+        $function_id = $db->escapeString($_GET['function_id']);
     if (isset($_GET['offset']))
         $offset = $db->escapeString($_GET['offset']);
     if (isset($_GET['limit']))
@@ -188,7 +190,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'moi') {
     foreach ($res as $row)
         $total = $row['total'];
    
-    $sql = "SELECT * FROM moi,users WHERE moi.user_id=users.id ";
+    $sql = "SELECT * FROM moi,users WHERE moi.user_id=users.id AND moi.function_id = '$function_id'";
     $db->sql($sql);
     $res = $db->getResult();
 

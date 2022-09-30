@@ -163,58 +163,7 @@ $db->sql("SET NAMES 'utf8'");
                         <span>விழாகஂகளஂ</span>
                     </a>
                 </li>
-                <!-- <li class="treeview">
-                    <a href="mois.php">
-                        <i class="fa fa-bullseye"></i>
-                        <span>மொயஂ</span>
-                    </a>
-                </li> -->
-                <!-- <li class="treeview">
-                    <a href="slides.php">
-                        <i class="fa fa-sliders"></i>
-                        <span>Slides</span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="services.php">
-                        <i class="fa fa-wrench"></i>
-                        <span>Services</span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="rentals.php">
-                        <i class="fa fa-truck"></i>
-                        <span>Rentals</span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-location-arrow"></i>
-                        <span>Deliver Pincodes</span>
-                        <i class="fa fa-angle-right pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="pincodes.php"><i class="fa fa-sliders"></i> Manage Pincodes</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="orders.php">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span>Orders</span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="notifications.php">
-                        <i class="fa fa-bell"></i>
-                        <span>Notifications</span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="showrooms.php">
-                    <i class="fa fa-map"></i>
-                        <span>Showrooms</span>
-                    </a>
-                </li> -->
+                
               
             </ul>
             </section>
