@@ -30,11 +30,11 @@ if ($num == 1) {
     $sql = "SELECT SUM(amount) AS debitmoi FROM moi WHERE user_id = '$user_id'";
     $db->sql($sql);
     $res = $db->getResult();
-    $debitmoi = ($res[0]['debitmoi'] == 'NULL') ? $res[0]['debitmoi'] : "0";
+    $debitmoi = ($res[0]['debitmoi'] != null )? $res[0]['debitmoi'] : "0";
     $sql = "SELECT SUM(amount) AS creditmoi FROM moi WHERE organizer_id = '$user_id'";
     $db->sql($sql);
     $res = $db->getResult();
-    $creditmoi = ($res[0]['creditmoi'] == 'NULL') ? $res[0]['creditmoi'] : "0";
+    $creditmoi = ($res[0]['creditmoi'] != null ) ? $res[0]['creditmoi'] : "0";
 
     // $sql = "SELECT * FROM functions WHERE user_id='$user_id' ORDER BY id DESC LIMIT 10";
     // $db->sql($sql);
@@ -50,7 +50,7 @@ if ($num == 1) {
     //     $rows[] = $temp;
         
     // }
-    $response['success'] = false;
+    $response['success'] = true;
     $response['message'] ="Dashboard Retrived Successfully";
     $response['debitmoi'] = $debitmoi;
     $response['creditmoi'] = $creditmoi;
