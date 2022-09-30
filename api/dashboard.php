@@ -27,6 +27,9 @@ $db->sql($sql);
 $res = $db->getResult();
 $num = $db->numRows($res);
 if ($num == 1) {
+    $name = $res[0]['name'];
+    $mobile = $res[0]['mobile'];
+    $location = $res[0]['location'];
     $sql = "SELECT SUM(amount) AS debitmoi FROM moi WHERE user_id = '$user_id'";
     $db->sql($sql);
     $res = $db->getResult();
@@ -35,23 +38,11 @@ if ($num == 1) {
     $db->sql($sql);
     $res = $db->getResult();
     $creditmoi = ($res[0]['creditmoi'] != null ) ? $res[0]['creditmoi'] : "0";
-
-    // $sql = "SELECT * FROM functions WHERE user_id='$user_id' ORDER BY id DESC LIMIT 10";
-    // $db->sql($sql);
-    // $res = $db->getResult();
-    // $rows = array();
-    // foreach ($res as $row) {
-    //     $temp['id'] = $row['id'];
-    //     $temp['user_id'] = $row['user_id'];
-    //     $temp['function_name'] = $row['function_name'];
-    //     $temp['image'] = DOMAIN_URL . $row['image'];
-    //     $temp['place'] = $row['place'];
-    //     $temp['date'] = $row['date'];
-    //     $rows[] = $temp;
-        
-    // }
     $response['success'] = true;
     $response['message'] ="Dashboard Retrived Successfully";
+    $response['name'] = $name;
+    $response['mobile'] = $mobile;
+    $response['location'] = $location;
     $response['debitmoi'] = $debitmoi;
     $response['creditmoi'] = $creditmoi;
     // $response['recent_functions'] = $rows;
